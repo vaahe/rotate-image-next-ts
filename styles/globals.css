@@ -4,23 +4,466 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+  background-color: aliceblue;
 }
 
 * {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(172, 66, 166);
+  color: #ffffff;
+}
+
+#footer {
+  text-align: center;
+  background-color: rgb(172, 66, 166);
+  height: 100px;
+  color: #ffffff;
+  padding-top: 1px;
+}
+
+#footer h4 {
+  margin-left: 30px;
+}
+
+h1 {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#upload-section {
+  padding: 80px;
+}
+
+.upload-form {
+  position: relative;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 3px dashed gray;
+}
+
+.drag-drop {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  width: 30%;
+}
+
+.drag-and-drop {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15%;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  border: 2px dashed lightgray;
+}
+
+.drag-and-drop input {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.drag-and-drop:hover,
+.drag-and-drop.dragover {
+  opacity: 0.6;
+}
+
+.drag-input {
+  text-align: center;
+  font-weight: 600;
+}
+
+.drag-input img {
+  width: 50%;
+}
+
+label {
+  position: relative;
+  text-align: center;
+  padding: 5%;
+  color: white;
+  font-size: 25px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: lightblue;
+  transition: .2s ease-in;
+}
+
+label:hover {
+  background-color: rgb(73, 73, 165);
+}
+
+label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+}
+
+#upload-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#upload-link div {
+  position: relative;
+  width: 15%;
+  margin: 0 15px;
+}
+
+.logo {
+  width: 100%;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.submit {
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 15px 115px;
+  margin-top: 30px;
+  background-color: lightblue;
+}
+
+.submit:hover {
+  background-color: rgb(73, 73, 165);
+}
+
+/* Image Modify and Tools Sections */
+#modify-image {
+  display: flex;
+  flex-direction: row;
+  padding: 40px;
+}
+
+#tools-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+}
+
+.tools {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tools-share {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+#tools-menu button,
+.delete-Image-link {
+  border: none;
+  width: 100px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  color: white;
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+#tools-menu button:hover,
+.delete-Image-link:hover {
+  background-color: rgb(73, 73, 165);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.flip-horizontal,
+.flip-vertical {
+  font-size: 35px;
+}
+
+.download-Image {
+  font-size: 15px;
+  font-weight: 600;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.download-Image:hover {
+  background-color: rgb(73, 73, 165);
+}
+
+.download-Image>a {
+  text-decoration: none;
+  color: white;
+}
+
+#share-social-network {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#share-social-network button {
+  width: 55px;
+  margin-left: 10px !important;
+}
+
+.share-link {
+  width: 55px;
+}
+
+.share-link button {
+  padding: 10px 0;
+  margin: 0 0 10px 0 !important;
+  border-radius: 50% !important;
+}
+
+.show-link-info {
+  display: block;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: rgb(91, 255, 91);
+  font-style: italic
+}
+
+.delete-Image-link {
+  font-size: 15px;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  padding: 20px 0;
+  background-color: rgb(223, 101, 101);
+}
+
+.delete-Image-link:hover {
+  background-color: red;
+}
+
+.image-QR {
+  bottom: 0;
+  left: 0;
+}
+
+
+.hide-link-info {
+  display: none;
+}
+
+
+.flip-vertical div {
+  transform: rotate(90deg);
+}
+
+#uploaded-image {
+  position: relative;
+  width: 1000px;
+  max-height: 600px;
+  margin-left: 100px;
+  padding: 60px 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed grey;
+  background-image:
+    linear-gradient(45deg, lightgrey 25%, transparent 25%),
+    linear-gradient(-45deg, lightgrey 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, lightgrey 75%),
+    linear-gradient(-45deg, transparent 75%, lightgrey 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+}
+
+.default {
+  display: none;
+}
+
+.error {
+  color: red;
+  margin-bottom: 30px;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
   }
-  body {
-    color: white;
-    background: black;
+
+  100% {
+    transform: rotate(360deg);
   }
+}
+
+.loading-spinner {
+  width: 100px;
+  height: 100px;
+  border: 25px solid #f3f3f3;
+  border-top: 20px solid lightblue;
+  border-radius: 50%;
+  animation: spinner 1.2s linear infinite;
+}
+
+@media screen and (max-width: 1000px) {
+  #header {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: medium;
+  }
+
+  #uploaded-image {
+    padding: 0;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  #upload-link div {
+    width: 30%;
+    margin: 0 10px;
+  }
+
+  .google-drive {
+    margin: auto;
+    display: flex;
+  }
+
+  .drag-drop {
+    width: 80%;
+  }
+
+  label {
+    font-size: large;
+    letter-spacing: 2px;
+  }
+
+  #modify-image {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  #tools-menu {
+    width: inherit;
+  }
+
+  .tools {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .menu {
+    flex-direction: row;
+  }
+
+  #tools-menu button,
+  .delete-Image-link {
+    margin-left: 10px;
+    width: 25%;
+    padding: 8px 2px;
+    font-size: 12px;
+  }
+
+  #share-social-network {
+    flex-wrap: nowrap;
+  }
+
+  #share-social-network button {
+    width: 100% !important;
+    margin: 0 11px 0 5px !important;
+    padding: 12px;
+  }
+
+  .flip-horizontal,
+  .flip-vertical {
+    font-size: 25px !important;
+  }
+
+  #newimg {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+  }
+}
+
+.rotate {
+  height: 50px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown>button {
+  height: 50px;
+}
+
+.menu-share {
+  position: absolute;
+
+  list-style-type: none;
+  margin: 5px 0;
+  padding: 0;
+
+  border: 1px solid grey;
+  width: 150px;
+}
+
+.menu-share>li {
+  margin: 0;
+
+  background-color: white;
+}
+
+.menu-share>li:hover {
+  background-color: lightgray;
+}
+
+.menu-share>li>button {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 5px;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
 }
